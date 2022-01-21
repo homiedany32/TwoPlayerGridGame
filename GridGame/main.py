@@ -135,7 +135,7 @@ current_units = []
 pygame.init()
 WINDOW_SIZE = [1000, 800]
 screen = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("Array Backed Grid")
+pygame.display.set_caption("Two Player Grid Game")
 
 done = False
 
