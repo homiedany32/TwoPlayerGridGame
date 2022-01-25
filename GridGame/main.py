@@ -446,13 +446,13 @@ def unitbattle(row1, col1, row2, col2):
             winner[4] = 0
         
 def turns(turncount):
-    if turncount == 20:
-        AddUnit(2, 0, 30)
-        AddUnit(4, 0, 31)
-        AddUnit(6, 1, 31)
-        AddUnit(1, 30, 0)
-        AddUnit(3, 31, 0)
-        AddUnit(5, 31, 1)
+    if turncount == 10:
+        AddUnit(2, 0, 30, 0)
+        AddUnit(4, 0, 31, 0)
+        AddUnit(6, 1, 31, 0)
+        AddUnit(1, 30, 0, 0)
+        AddUnit(3, 31, 0, 0)
+        AddUnit(5, 31, 1, 0)
 
 def calcunits(team):
     number = 0
@@ -523,9 +523,12 @@ while not done:
                                 movement -= 1
                                 resetmovegrid()
                             elif unit_grid[row][column] != 0:
+                                temp1 = findunit(row, column)
+                                temp2 = findunit(storedrow2, storedcol2)
+                                if (temp2[0] != temp1[0]):
+                                    movement -= 1
                                 unitbattle(storedrow2, storedcol2, row, column)
                                 grid[storedrow2][storedcol2] = 1
-                                movement -= 1
                                 resetmovegrid()
                             if movement == 0:
                                 TC += 1
